@@ -1,6 +1,6 @@
 import collections
 
-class FileGathering(object):
+class BiMap(collections.Sequence):
     class PairProxy(object):
         def __init__(self, delegate, attribute_name):
             self.delegate = delegate

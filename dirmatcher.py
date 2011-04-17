@@ -3,7 +3,7 @@ import hashlib
 
 from os import path
 
-import file_gathering
+import bimap
 
 def hash_file(make_hash, path):
     hash = make_hash()
@@ -22,7 +22,7 @@ class FileGatherer(object):
         self.make_hash = make_hash
 
     def __call__(self):
-        hashed_files = file_gathering.FileGathering()
+        hashed_files = bimap.BiMap()
         for current_root, directories, files in os.walk(root_directory):
             self.filter_directories(directories)
             paths = self.gather_files(current_root, files)
