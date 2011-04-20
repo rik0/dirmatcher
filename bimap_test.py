@@ -4,7 +4,7 @@ __author__ = 'enrico'
 
 import unittest
 
-class MyTestCase(unittest.TestCase):
+class SimpleTests(unittest.TestCase):
     def setUp(self):
         self.bimap = bimap.Bimap()
 
@@ -17,5 +17,18 @@ class MyTestCase(unittest.TestCase):
         self.assertEquals(self.bimap[left], right)
 
 
+class OneElementTests(unittest.TestCase):
+    def setUp(self):
+        self.key = 'foo'
+        self.value = 'bar'
+        self.bimap = bimap.Bimap()
+        self.bimap,add(self.key, self.value)
+
+    def testGetKey(self):
+        self.assertEqual(self.bimap.get(self.key), self.value)
+        self.assertEqual(self.bimap[self.key], self.value)
+        self.assertEqual(self.bimap.left_get(self.key), self.value)
+
+        
 if __name__ == '__main__':
     unittest.main()
